@@ -259,6 +259,22 @@ class PortfolioApp {
         this.resizeCanvas();
         this.createParticles();
         this.animateParticles();
+
+        this.mouse = {
+            x: null,
+            y: null,
+            radius: 150 // Area around mouse where particles react
+        };
+
+        window.addEventListener('mousemove', (event) => {
+            this.mouse.x = event.x;
+            this.mouse.y = event.y;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
     }
 
     resizeCanvas() {
@@ -286,6 +302,20 @@ class PortfolioApp {
             // Update position
             particle.x += particle.speedX;
             particle.y += particle.speedY;
+
+            // Mouse interaction
+            if (this.mouse.x && this.mouse.y) {
+                const dx = particle.x - this.mouse.x;
+                const dy = particle.y - this.mouse.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.mouse.radius) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (this.mouse.radius - distance) / this.mouse.radius;
+                    particle.x += Math.cos(angle) * force * 2;
+                    particle.y += Math.sin(angle) * force * 2;
+                }
+            }
             
             // Wrap around edges
             if (particle.x > this.canvas.width) particle.x = 0;
