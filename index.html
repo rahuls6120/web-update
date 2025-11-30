@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful and functional to-do list application">
+    <title>✨ My To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body>
+    <main class="container" role="main">
+        <header>
+            <h1>✨ My To-Do List</h1>
+        </header>
+        
+        <section aria-label="Add new task">
+            <form id="todo-form" role="form">
+                <label for="todo-input" class="sr-only">New task</label>
+                <input 
+                    type="text" 
+                    id="todo-input" 
+                    placeholder="What needs to be done?" 
+                    autocomplete="off"
+                    maxlength="200"
+                    aria-describedby="input-help"
+                >
+                <button type="submit" aria-label="Add new task">
+                    ➕ Add Task
+                </button>
+            </form>
+            <div id="input-help" class="sr-only">
+                Enter a task and press Enter or click Add Task. Use Ctrl+Enter as shortcut.
+            </div>
+        </section>
+        
+        <section aria-label="Task list">
+            <ul id="todo-list" role="list" aria-live="polite">
+                <!-- Tasks will be added here by JavaScript -->
+            </ul>
+        </section>
+        
+        <section aria-label="Task management">
+            <button 
+                id="clear-all-button" 
+                class="clear-button"
+                aria-label="Clear all tasks"
+            >
+                🗑️ Clear All Tasks
+            </button>
+        </section>
+    </main>
+
+    <!-- Screen reader only styles -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
