@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTS Newcomer Guide | Rahul S</title>
+    <meta name="description"
+        content="Real answers about joining Cognizant — from someone who's been through it. Powered by AI.">
+
+    <!-- Cursor trail canvas -->
+    <style>
+        #cursor-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Datafa.st Analytics -->
+    <script defer data-website-id="dfid_g2wJb2EKnEXXNY4edIh3F" data-domain="www.its-rahul.tech"
+        src="https://datafa.st/js/script.js"></script>
+    <style>
+        /* ── Extra FAQ-unique styles ────────────────────────── */
+
+        /* Animated mesh orbs in hero */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: orbFloat 10s ease-in-out infinite
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            33% {
+                transform: translate(30px, -40px) scale(1.08)
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.93)
+            }
+        }
+
+        .orb1 {
+            width: 420px;
+            height: 420px;
+            background: rgba(6, 182, 212, .18);
+            top: -10%;
+            left: -8%;
+            animation-delay: 0s
+        }
+
+        .orb2 {
+            width: 380px;
+            height: 380px;
+            background: rgba(99, 102, 241, .2);
+            top: 10%;
+            right: -5%;
+            animation-delay: -3s
+        }
+
+        .orb3 {
+            width: 260px;
+            height: 260px;
+            background: rgba(20, 184, 166, .15);
+            bottom: 5%;
+            left: 30%;
+            animation-delay: -6s
+        }
+
+        /* Teal accent overrides */
+        .hero-eyebrow .live-dot {
+            background: #14b8a6;
+            box-shadow: 0 0 12px rgba(20, 184, 166, .8)
+        }
+
+        .faq-item {
+            border-left: 3px solid transparent;
+            transition: border-color .3s, border-right .3s, border-top .3s, border-bottom .3s, box-shadow .3s, transform .3s
+        }
+
+        .faq-item:hover {
+            border-left-color: #14b8a6;
+            border-color: rgba(20, 184, 166, .35) !important
+        }
+
+        .faq-item.open {
+            border-left-color: #14b8a6 !important;
+            border-color: rgba(20, 184, 166, .3) !important
+        }
+
+        .faq-item.open .faq-arrow {
+            background: rgba(20, 184, 166, .12);
+            border-color: rgba(20, 184, 166, .4)
+        }
+
+        .faq-emoji {
+            transition: transform .3s
+        }
+
+        .faq-btn:hover .faq-emoji {
+            transform: scale(1.3) rotate(-5deg)
+        }
+
+        /* Chat teal accent */
+        .chat-avatar {
+            background: linear-gradient(135deg, #0d9488, #6366f1)
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #0d9488, #0e7490)
+        }
+
+        .send-btn:hover {
+            box-shadow: 0 4px 15px rgba(20, 184, 166, .45)
+        }
+
+        .msg-bot .msg-icon {
+            background: linear-gradient(135deg, #0d9488, #6366f1)
+        }
+
+        .chat-model-badge {
+            background: rgba(20, 184, 166, .1);
+            border-color: rgba(20, 184, 166, .25);
+            color: #5eead4
+        }
+
+        /* Interactive FAQ count badge */
+        .faq-read-badge {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            background: rgba(9, 9, 11, .9);
+            border: 1px solid rgba(20, 184, 166, .3);
+            border-radius: 999px;
+            padding: .5rem 1rem;
+            font-size: .75rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #5eead4;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            backdrop-filter: blur(12px);
+            transform: translateY(80px);
+            transition: transform .4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .4)
+        }
+
+        .faq-read-badge.visible {
+            transform: translateY(0)
+        }
+
+        /* Hero scroll indicator animated line */
+        .hero-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(20, 184, 166, .4), rgba(99, 102, 241, .4), transparent)
+        }
+
+        /* Floating tooltip on FAQ btn */
+        .faq-tip {
+            position: absolute;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: .65rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #52525b;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .2s
+        }
+
+        .faq-btn:hover .faq-tip {
+            opacity: 1
+        }
+
+        /* Progress bar at top */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0d9488, #6366f1, #c4b5fd);
+            z-index: 2000;
+            width: 0%;
+            transition: width .1s linear
+        }
+
+        /* Tag teal variant */
+        .tag-teal {
+            background: rgba(20, 184, 166, .08);
+            border-color: rgba(20, 184, 166, .25);
+            color: #5eead4
+        }
+
+        /* Glow on hover for tip-box */
+        .faq-content .tip-box {
+            cursor: default;
+            transition: all .2s
+        }
+
+        .faq-content .tip-box:hover {
+            background: rgba(99, 102, 241, .1);
+            border-color: rgba(99, 102, 241, .35)
+        }
+
+        /* Animated gradient border on chat card */
+        .chat-card {
+            background: linear-gradient(rgba(9, 9, 11, .9), rgba(9, 9, 11, .9)) padding-box, linear-gradient(180deg, rgba(20, 184, 166, .35), rgba(99, 102, 241, .2)) border-box;
+            border: 1px solid transparent
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(99, 102, 241, .5)
+            }
+
+            50% {
+                box-shadow: 0 0 14px rgba(99, 102, 241, .95)
+            }
+        }
+    </style>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #05050a;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+            background-size: 28px 28px;
+            color: #d4d4d8;
+            overflow-x: hidden;
+            line-height: 1.6
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px
+        }
+
+        img,
+        i {
+            display: inline-block
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem
+        }
+
+        /* NAV */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 10, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: background .3s
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .nav-logo span {
+            color: #6366f1
+        }
+
+        .nav-logo:hover {
+            color: #a5b4fc
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: .375rem;
+            color: #71717a;
+            font-size: .8125rem;
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .nav-back:hover {
+            color: #fff
+        }
+
+        .nav-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .375rem;
+            padding: .25rem .75rem;
+            border-radius: 999px;
+            background: rgba(99, 102, 241, .1);
+            border: 1px solid rgba(99, 102, 241, .25);
+            color: #a5b4fc;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
+            text-decoration: none
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 7rem 1.5rem 4rem;
+            position: relative;
+            background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(99, 102, 241, .18) 0%, rgba(139, 92, 246, .07) 45%, transparent 70%)
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .35rem 1rem;
+            border-radius: 999px;
+            background: rgba(9, 9, 11, .9);
+            border: 1px solid rgba(255, 255, 255, .1);
+            font-size: .75rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #a1a1aa;
+            margin-bottom: 1.75rem
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #6366f1;
+            flex-shrink: 0;
+            animation: glow 2s ease-in-out infinite
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(99, 102, 241, .5)
+            }
+
+            50% {
+                box-shadow: 0 0 14px rgba(99, 102, 241, .95)
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -.03em;
+            color: #fff;
+            margin-bottom: 1.25rem
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 45%, #67e8f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .hero-sub {
+            font-size: clamp(.95rem, 2vw, 1.1rem);
+            color: #71717a;
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75
+        }
+
+        .hero-sub .accent {
+            color: #818cf8;
+            font-weight: 500
+        }
+
+        .hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .625rem;
+            margin-bottom: 2rem
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .375rem;
+            padding: .3rem .875rem;
+            border-radius: 999px;
+            background: rgba(9, 9, 11, .7);
+            border: 1px solid rgba(255, 255, 255, .08);
+            font-size: .75rem;
+            color: #a1a1aa;
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .chip.active,
+        .chip:hover {
+            background: rgba(99, 102, 241, .12);
+            border-color: rgba(99, 102, 241, .35);
+            color: #a5b4fc
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .375rem;
+            color: #3f3f46;
+            font-size: .7rem;
+            font-family: 'JetBrains Mono', monospace;
+            animation: floatY 3s ease-in-out infinite
+        }
+
+        @keyframes floatY {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0)
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-6px)
+            }
+        }
+
+        /* MAIN LAYOUT */
+        .main-layout {
+            padding: 4rem 0 6rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem
+        }
+
+        @media(min-width:1024px) {
+            .main-layout {
+                grid-template-columns: 1fr 420px;
+                gap: 2.5rem;
+                align-items: start
+            }
+        }
+
+        /* ─ FAQ PANEL ─ */
+        .faq-panel-header {
+            margin-bottom: 1.75rem
+        }
+
+        .panel-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
+            color: #6366f1;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: .5rem
+        }
+
+        .panel-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(99, 102, 241, .4), transparent)
+        }
+
+        .panel-title {
+            font-size: 1.625rem;
+            font-weight: 700;
+            color: #fff
+        }
+
+        /* Category tabs */
+        .cat-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-bottom: 1.75rem
+        }
+
+        .cat-tab {
+            padding: .3rem .875rem;
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, .08);
+            background: transparent;
+            color: #71717a;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: inherit
+        }
+
+        .cat-tab.active {
+            background: rgba(99, 102, 241, .12);
+            border-color: rgba(99, 102, 241, .35);
+            color: #a5b4fc
+        }
+
+        .cat-tab:hover:not(.active) {
+            border-color: rgba(255, 255, 255, .15);
+            color: #d4d4d8
+        }
+
+        /* Accordion */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: .625rem
+        }
+
+        .faq-item {
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: .875rem;
+            overflow: hidden;
+            background: rgba(9, 9, 11, .85);
+            transition: border-color .3s
+        }
+
+        .faq-item.hidden {
+            display: none
+        }
+
+        .faq-item:hover {
+            border-color: rgba(99, 102, 241, .25)
+        }
+
+        .faq-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: .875rem;
+            padding: 1.125rem 1.25rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            color: #d4d4d8;
+            font-family: inherit;
+            font-size: .9375rem;
+            font-weight: 600;
+            transition: color .2s
+        }
+
+        .faq-btn:hover {
+            color: #fff
+        }
+
+        .faq-emoji {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            line-height: 1
+        }
+
+        .faq-q-text {
+            flex: 1
+        }
+
+        .faq-arrow {
+            margin-left: auto;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform .3s, background .2s, border-color .2s
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+            background: rgba(99, 102, 241, .15);
+            border-color: rgba(99, 102, 241, .4)
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .3s
+        }
+
+        .faq-item.open .faq-body {
+            max-height: 600px;
+            padding-bottom: 1.25rem
+        }
+
+        .faq-content {
+            padding: 0 1.25rem;
+            font-size: .875rem;
+            color: #71717a;
+            line-height: 1.85
+        }
+
+        .faq-content strong {
+            color: #d4d4d8;
+            font-weight: 600
+        }
+
+        .faq-content ul {
+            margin: .5rem 0 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .35rem
+        }
+
+        .faq-content .tip-box {
+            margin-top: .875rem;
+            padding: .75rem 1rem;
+            background: rgba(99, 102, 241, .07);
+            border: 1px solid rgba(99, 102, 241, .2);
+            border-radius: .625rem;
+            font-size: .8125rem;
+            color: #a5b4fc
+        }
+
+        .faq-content .tip-box::before {
+            content: '💡 Pro tip: ';
+            font-weight: 600
+        }
+
+        /* ─ CHAT PANEL ─ */
+        .chat-panel {
+            position: sticky;
+            top: 80px
+        }
+
+        .chat-card {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: rgba(9, 9, 11, .9);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column
+        }
+
+        /* Rate bar */
+        .rate-bar-wrap {
+            padding: .75rem 1.25rem;
+            background: rgba(99, 102, 241, .04);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .75rem
+        }
+
+        .rate-label {
+            font-size: .7rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #52525b;
+            white-space: nowrap
+        }
+
+        .rate-label span {
+            color: #818cf8
+        }
+
+        .rate-track {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 2px;
+            overflow: hidden
+        }
+
+        .rate-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width .4s ease
+        }
+
+        .rate-fill.warn {
+            background: linear-gradient(90deg, #f59e0b, #ef4444)
+        }
+
+        /* Chat header */
+        .chat-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            align-items: center;
+            gap: .75rem
+        }
+
+        .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0
+        }
+
+        .chat-title {
+            font-size: .9375rem;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .chat-subtitle {
+            font-size: .7rem;
+            color: #52525b;
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        .chat-model-badge {
+            margin-left: auto;
+            padding: .2rem .5rem;
+            border-radius: .375rem;
+            background: rgba(99, 102, 241, .1);
+            border: 1px solid rgba(99, 102, 241, .2);
+            font-size: .6rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #818cf8
+        }
+
+        /* Messages */
+        .chat-messages {
+            height: 340px;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            scroll-behavior: smooth
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 4px
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 2px
+        }
+
+        .msg {
+            display: flex;
+            gap: .625rem;
+            animation: msgIn .25s ease-out
+        }
+
+        @keyframes msgIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .msg-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            flex-shrink: 0;
+            margin-top: .125rem
+        }
+
+        .msg-bot .msg-icon {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6)
+        }
+
+        .msg-user .msg-icon {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .msg-user {
+            flex-direction: row-reverse
+        }
+
+        .msg-bubble {
+            max-width: 85%;
+            padding: .625rem .875rem;
+            border-radius: .875rem;
+            font-size: .8125rem;
+            line-height: 1.65
+        }
+
+        .msg-bot .msg-bubble {
+            background: rgba(39, 39, 42, .6);
+            border: 1px solid rgba(255, 255, 255, .07);
+            color: #d4d4d8;
+            border-radius: .875rem .875rem .875rem .125rem
+        }
+
+        .msg-user .msg-bubble {
+            background: rgba(99, 102, 241, .15);
+            border: 1px solid rgba(99, 102, 241, .25);
+            color: #a5b4fc;
+            border-radius: .875rem .875rem .125rem .875rem
+        }
+
+        .msg-bubble strong {
+            color: #fff;
+            font-weight: 600
+        }
+
+        .msg-bubble em {
+            color: #818cf8;
+            font-style: normal
+        }
+
+        /* Ask Rahul card */
+        .ask-rahul {
+            margin: .375rem 0 0 2.25rem;
+            padding: .75rem 1rem;
+            background: linear-gradient(135deg, rgba(6, 182, 212, .07), rgba(99, 102, 241, .07));
+            border: 1px solid rgba(6, 182, 212, .2);
+            border-radius: .75rem;
+            font-size: .75rem;
+            color: #71717a;
+            animation: msgIn .3s ease-out
+        }
+
+        .ask-rahul-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: .8125rem;
+            margin-bottom: .375rem;
+            display: flex;
+            align-items: center;
+            gap: .375rem
+        }
+
+        .ask-rahul-btns {
+            display: flex;
+            gap: .5rem;
+            margin-top: .625rem;
+            flex-wrap: wrap
+        }
+
+        .ask-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .375rem;
+            padding: .35rem .75rem;
+            border-radius: .5rem;
+            font-size: .7rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            font-family: inherit;
+            border: 1px solid;
+            cursor: pointer
+        }
+
+        .ask-btn-linkedin {
+            background: rgba(10, 102, 194, .1);
+            border-color: rgba(10, 102, 194, .3);
+            color: #60a5fa
+        }
+
+        .ask-btn-linkedin:hover {
+            background: rgba(10, 102, 194, .2)
+        }
+
+        .ask-btn-email {
+            background: rgba(99, 102, 241, .1);
+            border-color: rgba(99, 102, 241, .3);
+            color: #a5b4fc
+        }
+
+        .ask-btn-email:hover {
+            background: rgba(99, 102, 241, .2)
+        }
+
+        /* Typing */
+        .typing-dots {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: .5rem
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #52525b;
+            animation: dot .9s ease-in-out infinite
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: .4s
+        }
+
+        @keyframes dot {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(.6);
+                opacity: .3
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        /* Chips */
+        .quick-chips {
+            padding: .625rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: .375rem
+        }
+
+        .q-chip {
+            padding: .25rem .7rem;
+            background: rgba(39, 39, 42, .6);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: .5rem;
+            font-size: .7rem;
+            color: #a1a1aa;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: inherit
+        }
+
+        .q-chip:hover {
+            background: rgba(99, 102, 241, .12);
+            border-color: rgba(99, 102, 241, .3);
+            color: #a5b4fc
+        }
+
+        /* Input */
+        .chat-input-wrap {
+            padding: .875rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            gap: .625rem;
+            align-items: flex-end
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(39, 39, 42, .5);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: .75rem;
+            padding: .625rem .875rem;
+            color: #d4d4d8;
+            font-size: .8125rem;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            line-height: 1.5;
+            max-height: 100px;
+            transition: border-color .2s
+        }
+
+        .chat-input:focus {
+            border-color: rgba(99, 102, 241, .4)
+        }
+
+        .chat-input::placeholder {
+            color: #3f3f46
+        }
+
+        .send-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: .75rem;
+            background: linear-gradient(135deg, #6366f1, #7c3aed);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            flex-shrink: 0;
+            transition: all .2s;
+            font-size: 1rem
+        }
+
+        .send-btn:hover {
+            box-shadow: 0 4px 15px rgba(99, 102, 241, .4);
+            transform: translateY(-1px)
+        }
+
+        .send-btn:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+            transform: none
+        }
+
+        /* Limit reached */
+        .limit-msg {
+            padding: .875rem 1.25rem;
+            text-align: center;
+            font-size: .8125rem;
+            color: #71717a;
+            display: none
+        }
+
+        .limit-msg.show {
+            display: block
+        }
+
+        .limit-msg strong {
+            color: #f59e0b
+        }
+
+        /* ─ Tags ─ */
+        .tag {
+            display: inline-block;
+            padding: .2rem .65rem;
+            background: rgba(99, 102, 241, .08);
+            border: 1px solid rgba(99, 102, 241, .2);
+            border-radius: 999px;
+            color: #a5b4fc;
+            font-size: .7rem;
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        /* ─ CTA ─ */
+        .cta-section {
+            padding: 5rem 0;
+            text-align: center;
+            background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(99, 102, 241, .1) 0%, transparent 70%)
+        }
+
+        .cta-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: .75rem
+        }
+
+        .cta-sub {
+            color: #71717a;
+            font-size: .9375rem;
+            margin-bottom: 2rem
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .75rem
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .75rem 1.75rem;
+            border-radius: .875rem;
+            font-weight: 600;
+            font-size: .875rem;
+            text-decoration: none;
+            transition: all .25s;
+            font-family: inherit;
+            cursor: pointer;
+            border: none
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #7c3aed);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, .3)
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(99, 102, 241, .5);
+            transform: translateY(-2px)
+        }
+
+        .btn-secondary {
+            background: rgba(9, 9, 11, .8);
+            color: #e4e4e7;
+            border: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .btn-secondary:hover {
+            background: rgba(39, 39, 42, .8);
+            transform: translateY(-1px)
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: .8125rem;
+            color: #3f3f46
+        }
+
+        .footer a {
+            color: #52525b;
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .footer a:hover {
+            color: #a1a1aa
+        }
+
+        /* Responsive */
+        @media(max-width:1023px) {
+            .chat-panel {
+                position: static
+            }
+        }
+
+        @media(max-width:639px) {
+            .hero-title {
+                font-size: 2.25rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-back">
+                <i class="ph ph-arrow-left" style="font-size:.875rem;"></i> Back to Portfolio
+            </a>
+            <a href="index.html" class="nav-logo">Rahul<span>S.</span></a>
+            <a href="#chat" class="nav-badge-pill">
+                <span
+                    style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;flex-shrink:0;box-shadow:0 0 6px rgba(34,197,94,.7);"></span>
+                AI Live
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-eyebrow">
+            <span class="live-dot"></span>
+            Real experience · IBM DataStage Analyst Trainee · Cognizant 2025
+        </div>
+        <h1 class="hero-title">
+            Newcomer's Guide to<br>
+            <span class="gradient-text">Joining Cognizant.</span>
+        </h1>
+        <p class="hero-sub">
+            7 real FAQs from Rahul's experience + an <span class="accent">AI assistant</span> trained on his journey.
+            Can't find your answer? It'll connect you to Rahul directly.
+        </p>
+        <div class="hero-chips">
+            <div class="chip active" onclick="filterFaq('all')"><i class="ph ph-list"></i> All Topics</div>
+            <div class="chip" onclick="filterFaq('interview')">🎯 Interview</div>
+            <div class="chip" onclick="filterFaq('onboarding')">🗓️ Onboarding</div>
+            <div class="chip" onclick="filterFaq('training')">🎓 Training</div>
+            <div class="chip" onclick="filterFaq('career')">📍 Career</div>
+        </div>
+        <div class="scroll-cue">
+            <span>explore</span>
+            <i class="ph ph-arrow-down" style="font-size:.75rem;"></i>
+        </div>
+        <!-- Animated mesh orbs -->
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <!-- Bottom gradient line -->
+        <div class="hero-divider"></div>
+    </section>
+
+    <!-- MAIN -->
+    <section style="padding:0 0 4rem">
+        <div class="container">
+            <div class="main-layout">
+
+                <!-- ══ FAQ PANEL ══ -->
+                <div>
+                    <div class="faq-panel-header" data-aos="fade-right">
+                        <div class="panel-label">07 questions</div>
+                        <h2 class="panel-title">Commonly Asked</h2>
+                    </div>
+
+                    <div class="cat-tabs" data-aos="fade-up">
+                        <button class="cat-tab active" onclick="filterFaq('all',this)">All</button>
+                        <button class="cat-tab" onclick="filterFaq('interview',this)">🎯 Interview</button>
+                        <button class="cat-tab" onclick="filterFaq('onboarding',this)">🗓️ Onboarding</button>
+                        <button class="cat-tab" onclick="filterFaq('training',this)">🎓 Training</button>
+                        <button class="cat-tab" onclick="filterFaq('career',this)">📍 Career</button>
+                    </div>
+
+                    <div class="faq-list" id="faq-list" data-aos="fade-up" data-aos-delay="100">
+
+                        <!-- Q1 -->
+                        <div class="faq-item" data-cat="interview">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">🎯</span>
+                                <span class="faq-q-text">What's the interview like at Cognizant?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>The Cognizant interview process typically has two rounds:</p>
+                                    <ul>
+                                        <li><strong>Technical Round:</strong> Mostly resume-based. They'll ask about
+                                            your projects, tech stack, and scenario-based questions. Know your resume
+                                            inside out — every line is fair game.</li>
+                                        <li><strong>HR Round:</strong> Includes a few aptitude/logical questions
+                                            followed by soft-skills assessment (communication, situational judgment).
+                                        </li>
+                                    </ul>
+                                    <div class="tip-box">Prepare 2–3 strong project explanations with clear problem →
+                                        solution → outcome structure. They value clarity over complexity.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="faq-item" data-cat="interview">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">📂</span>
+                                <span class="faq-q-text">What documents should I carry to the interview?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p><strong>For on-campus drives:</strong></p>
+                                    <ul>
+                                        <li>All academic marksheets (10th, 12th, UG semester-wise)</li>
+                                        <li>Government ID proof — Aadhaar or PAN card works</li>
+                                        <li>Passport-size photographs</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;"><strong>For off-campus drives:</strong> Check your
+                                        interview invitation email carefully — it will list exactly what to bring. But
+                                        always keep marksheets + any government ID as a backup.</p>
+                                    <div class="tip-box">Keep both original + photocopy of every document. Some venues
+                                        need you to submit copies that you won't get back.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="faq-item" data-cat="onboarding">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">🗓️</span>
+                                <span class="faq-q-text">What happens in Week 1 after joining?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>Week 1 is <strong>pure admin mode</strong> — no actual training content yet:</p>
+                                    <ul>
+                                        <li>Laptop collection and initial hardware setup</li>
+                                        <li>Corporate ID creation and system access configuration</li>
+                                        <li>Email, VPN, internal tools onboarding</li>
+                                        <li>HR policy briefings and compliance modules</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">Your Mentor, Trainer, and POC (Point of Contact) will
+                                        be formally introduced from <strong>Week 2 onwards</strong> when actual domain
+                                        training begins.</p>
+                                    <div class="tip-box">Use Week 1 to explore the internal knowledge base. Ask seniors
+                                        small questions — everyone is usually very welcoming in the first week.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="faq-item" data-cat="training">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">🎓</span>
+                                <span class="faq-q-text">How long is training & what's the structure?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>Training runs for <strong>up to 3 months maximum</strong>, split roughly as:</p>
+                                    <ul>
+                                        <li><strong>Week 1:</strong> Admin, setup, no technical content</li>
+                                        <li><strong>Weeks 2–12:</strong> Domain-specific technical training with
+                                            assigned Mentor + Trainer</li>
+                                        <li>Regular assessments and possibly hands-on lab sessions</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">Rahul's domain was <strong>IBM DataStage
+                                            (ETL)</strong>, which also included AWS Cloud and Linux fundamentals as part
+                                        of the curriculum.</p>
+                                    <div class="tip-box">Engage actively with your Trainer. If you're confused, ask
+                                        immediately — the pace can be fast, especially for niche tools like DataStage.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="faq-item" data-cat="career">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">🌐</span>
+                                <span class="faq-q-text">Can I choose my domain / technology?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p><strong>Short answer: No.</strong> Cognizant assigns your domain based on current
+                                        business demand.</p>
+                                    <ul>
+                                        <li>Common domains: Java, Salesforce, SAP, IBM DataStage, ServiceNow, Python,
+                                            etc.</li>
+                                        <li>Rahul got <strong>IBM DataStage</strong> — a niche but high-demand ETL tool
+                                        </li>
+                                        <li>There's no formal "preference form" at the trainee stage</li>
+                                    </ul>
+                                    <div class="tip-box">Don't be disheartened if you don't get your preferred tech.
+                                        Every domain has career growth opportunities and you can switch later with
+                                        effort.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="faq-item" data-cat="career">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">📍</span>
+                                <span class="faq-q-text">Will I get my preferred work location?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>Location is <strong>not guaranteed</strong> to match your preference. It depends
+                                        on:</p>
+                                    <ul>
+                                        <li>Your Project Manager's team location</li>
+                                        <li>Client requirements for the project</li>
+                                        <li>HR Manager's decision during allocation</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">You can express your preference, and some managers do
+                                        try to accommodate — but be prepared to relocate.</p>
+                                    <div class="tip-box">Start preparing practically — scout PGs/accommodation options
+                                        in the major CTS hubs (Chennai, Pune, Hyderabad, Bangalore) before allocation is
+                                        final.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="faq-item" data-cat="career">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">📬</span>
+                                <span class="faq-q-text">What happens after training ends?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>Once training completes, you receive an <strong>official project allocation
+                                            mail</strong> that includes:</p>
+                                    <ul>
+                                        <li>Project name and client details</li>
+                                        <li>Your Reporting Manager and team info</li>
+                                        <li>Work location and reporting date</li>
+                                        <li>Any pre-joining formalities (background check, client forms, etc.)</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">From that date, you officially become part of your
+                                        project team and your actual Cognizant career begins.</p>
+                                    <div class="tip-box">Before reporting day, reach out to your manager via email —
+                                        introduce yourself and ask if there's anything to prepare. It creates a great
+                                        first impression.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /faq-list -->
+                </div>
+
+                <!-- ══ CHAT PANEL ══ -->
+                <div class="chat-panel" id="chat" data-aos="fade-left">
+                    <div class="chat-card">
+
+                        <!-- Rate bar -->
+                        <div class="rate-bar-wrap">
+                            <span class="rate-label">Daily: <span id="rate-label-text">0/30</span></span>
+                            <div class="rate-track">
+                                <div class="rate-fill" id="rate-fill" style="width:0%"></div>
+                            </div>
+                            <span class="rate-label" id="rpm-label" style="color:#52525b;">–/min</span>
+                        </div>
+
+                        <!-- Header -->
+                        <div class="chat-header">
+                            <div class="chat-avatar">🤖</div>
+                            <div>
+                                <div class="chat-title">Ask Rahul's AI</div>
+                                <div class="chat-subtitle">Cognizant Analyst Trainee</div>
+                            </div>
+                            <div class="chat-model-badge">gemini-2.5-flash</div>
+                        </div>
+
+                        <!-- Messages -->
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="msg msg-bot">
+                                <div class="msg-icon">🤖</div>
+                                <div class="msg-bubble">
+                                    Hi! 👋 I'm Rahul's AI — trained on his <strong>real Cognizant experience</strong> as
+                                    an IBM DataStage Analyst Trainee. Ask me anything about joining CTS, the interview,
+                                    training, or life after!
+                                    <br><br>
+                                    <span style="color:#52525b;font-size:.75rem;">✦ If I don't know something, I'll
+                                        connect you to Rahul directly.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick chips -->
+                        <div class="quick-chips" id="quick-chips">
+                            <button class="q-chip"
+                                onclick="askChip('What should I expect in the Cognizant interview?')">Interview
+                                tips</button>
+                            <button class="q-chip" onclick="askChip('What documents do I need?')">Documents</button>
+                            <button class="q-chip" onclick="askChip('What is Week 1 like?')">Week 1</button>
+                            <button class="q-chip"
+                                onclick="askChip('Tell me about IBM DataStage training')">DataStage</button>
+                        </div>
+
+                        <!-- Limit message -->
+                        <div class="limit-msg" id="limit-msg">
+                            <strong>Daily limit reached</strong> — Gemini free tier allows 30 messages/day.<br>
+                            Resets at midnight. Meanwhile, <a href="https://linkedin.com/in/rahuls6120" target="_blank"
+                                style="color:#818cf8;">ask Rahul on LinkedIn →</a>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="chat-input-wrap" id="input-wrap">
+                            <textarea class="chat-input" id="chat-input"
+                                placeholder="Ask about interviews, training, life at CTS…" rows="1"
+                                onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+                            <button class="send-btn" id="send-btn" onclick="sendMessage()">
+                                <i class="ph ph-paper-plane-tilt"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /main-layout -->
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title" data-aos="fade-up">Still have questions?</h2>
+            <p class="cta-sub" data-aos="fade-up" data-aos-delay="80">Connect with Rahul directly on LinkedIn — he's
+                happy to chat.</p>
+            <div class="cta-btns" data-aos="fade-up" data-aos-delay="160">
+                <a href="https://linkedin.com/in/rahuls6120" target="_blank" class="btn btn-primary">
+                    <i class="ph ph-linkedin-logo"></i> Connect on LinkedIn
+                </a>
+                <a href="mailto:subbiahrahul007@gmail.com" class="btn btn-secondary">
+                    <i class="ph ph-envelope-simple"></i> Send an Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="index.html">← Back to Rahul's Portfolio</a>
+        &nbsp;·&nbsp; Built with real experience &amp; ❤️
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 60, duration: 650, easing: 'ease-out-cubic' });
+
+        // ─── CONSTANTS ───────────────────────────────────────
+        const API_KEY = 'AIzaSyDb_kRflQc0dKDAOZOkho8Lh9OSBqNP1YA';
+        const MODEL = 'gemini-2.5-flash';   // ✅ confirmed on this API key
+        const DAILY_LIMIT = 30;
+        const RPM_LIMIT = 10;
+        const STORAGE_KEY = 'cts_ai_usage';
+
+        const SYSTEM_PROMPT = `You are Rahul S's AI assistant embedded in his portfolio site.
+Rahul is an Analyst Trainee – Data Engineering at Cognizant Technology Solutions (CTS), having joined in June 2025.
+Background: BS CS with Data Analytics, CGPA 7.87, from Sri Ramakrishna College of Arts & Science, Coimbatore (Aug 2022–May 2025).
+
+== Rahul's Cognizant Experience ==
+- Role: Analyst Trainee – Data Engineering at Cognizant (Joined June 2025, Chennai, TN)
+- Domain: IBM DataStage & Informatica (ETL / Data Engineering) — Healthcare domain
+- Responsibilities:
+  • Monitoring 55+ daily ETL jobs processing millions to BILLIONS of records using IBM DataStage + Informatica
+  • Source-to-target data validation & quality checks using Oracle SQL
+  • Managing batch workflows via Autosys; Linux server monitoring via PuTTY
+  • Collaborating cross-functionally to resolve job failures and improve pipeline efficiency
+- Training: Completed 3-month intensive training (IBM DataStage, Informatica, SQL, Python, AWS, Linux, ETL patterns, Data Warehousing); Week 1 is admin/setup only, domain training starts Week 2.
+
+== Previous Experience ==
+- GEP Solutions, Data Analytics Intern (Dec 2024–Mar 2025, Coimbatore)
+  • Analyzed procurement data using Excel & Power BI
+  • Data cataloging initiative, data cleaning, KPI reporting
+
+== Key FAQ Facts ==
+INTERVIEW: Resume-based technical + scenario questions; HR has aptitude; know your resume well.
+DOCUMENTS: On-campus = marksheets + Aadhaar/PAN. Off-campus = check email + bring marksheets & ID.
+WEEK 1: Laptop setup, ID config, system access, no classes. Mentor/Trainer/POC introduced from Week 2+.
+TRAINING: Max 3 months. Domain-specific from Week 2 (IBM DataStage, Informatica, SQL, Python, AWS, Linux for Rahul).
+DOMAIN: CTS assigns it — not your choice. Based on business need. Rahul got IBM DataStage (healthcare ETL).
+LOCATION: Not guaranteed to match preference. Rahul is in Chennai. Depends on PM and HR Manager.
+AFTER TRAINING: Allocation mail with project name, client, manager, location, reporting date.
+
+== Skills ==
+ETL: IBM DataStage, Informatica, Autosys, ETL Pipeline Design, Data Warehousing, Linux/Unix
+Databases: Oracle, MySQL, SQL (CTEs, Stored Procedures, Advanced Queries), Data Validation
+Programming: Python (Pandas, NumPy, Scikit-learn, TensorFlow), SQL
+BI & Viz: Power BI, Tableau, Excel (Advanced), Matplotlib, Seaborn
+Cloud: AWS (EC2, S3, IAM), Google Cloud, Google Colab
+AI/ML: Scikit-learn, TensorFlow, Hugging Face, Stable Diffusion, NLP, Prompt Engineering, Gen AI
+
+== Projects ==
+1. Prompt Optimization for Text-to-Image Generation (Jan–Mar 2025) — Python, Hugging Face, CLIP, Stable Diffusion, NLP; PUBLISHED in IJRPR, March 2025.
+2. Titanic Survival Prediction (May 2024) — Logistic Regression, 80.36% accuracy; Python, Scikit-learn, Pandas, Matplotlib.
+3. ChatGPT Impact on Student Learning Analysis (May 2023) — Survey data analysis with Python, Pandas, Excel, Data Viz.
+
+== Certifications (8 total) ==
+IBM Generative AI: Prompt Engineering Basics (Mar 2025)
+Google: Build Real World AI Apps with Gemini and Imagen (Jun 2025)
+AWS Educate: Intro to Generative AI (Apr 2025); AWS Well-Architected Foundations (Feb 2025)
+Deloitte (Forage): Data Analytics Job Simulation – Tableau & Excel (Jun 2025)
+Google Cloud: Intro to Generative AI (Nov 2024)
+Tableau Fundamentals (Sep 2024); Alteryx ML Fundamentals (Aug 2024)
+
+== Achievements ==
+Best Participants – DIGITAL Women Conference & Mobility Programme (Feb 2024) — led team of 6, analyzed 330+ survey responses.
+Director, Editorial Board – Rotaract Club (Jun 2023–Apr 2024).
+Languages: English (Fluent), Tamil (Native), Telugu (Conversational).
+
+== Response Style ==
+Be warm, direct, and helpful — like a senior colleague. Use bullet points where needed. Keep it concise.
+If a question is completely outside Cognizant/career context, answer briefly but redirect to CTS guidance.
+If you genuinely don't know or are very uncertain, say "I'm not sure about this specific detail" — this triggers the Ask Rahul feature.`;
+
+        let chatHistory = [];
+        let sendingMsg = false;
+
+        // ─── RATE LIMITING ────────────────────────────────────
+        function getUsage() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return { date: today(), daily: 0, timestamps: [] };
+                const u = JSON.parse(raw);
+                if (u.date !== today()) return { date: today(), daily: 0, timestamps: [] };
+                return u;
+            } catch { return { date: today(), daily: 0, timestamps: [] }; }
+        }
+        function saveUsage(u) { localStorage.setItem(STORAGE_KEY, JSON.stringify(u)); }
+        function today() { return new Date().toISOString().slice(0, 10); }
+
+        function recordMessage() {
+            const u = getUsage();
+            u.daily++;
+            const now = Date.now();
+            u.timestamps = (u.timestamps || []).filter(t => now - t < 60000);
+            u.timestamps.push(now);
+            saveUsage(u);
+            updateRateUI(u);
+        }
+        function canSend() {
+            const u = getUsage();
+            if (u.daily >= DAILY_LIMIT) return { ok: false, reason: 'daily' };
+            const now = Date.now();
+            const recent = (u.timestamps || []).filter(t => now - t < 60000);
+            if (recent.length >= RPM_LIMIT) return { ok: false, reason: 'rpm' };
+            return { ok: true };
+        }
+        function updateRateUI(u) {
+            if (!u) u = getUsage();
+            const pct = Math.min(100, (u.daily / DAILY_LIMIT) * 100);
+            const fill = document.getElementById('rate-fill');
+            const label = document.getElementById('rate-label-text');
+            if (fill) { fill.style.width = pct + '%'; fill.className = 'rate-fill' + (pct > 70 ? ' warn' : ''); }
+            if (label) label.textContent = u.daily + '/' + DAILY_LIMIT;
+            const rpm = (u.timestamps || []).filter(t => Date.now() - t < 60000).length;
+            const rpmLbl = document.getElementById('rpm-label');
+            if (rpmLbl) rpmLbl.textContent = rpm + '/min';
+        }
+        updateRateUI();
+
+        // ─── FAQ LOGIC ────────────────────────────────────────
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+        function filterFaq(cat, tabEl) {
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.toggle('hidden', cat !== 'all' && el.dataset.cat !== cat);
+            });
+            document.querySelectorAll('.cat-tab, .chip').forEach(el => el.classList.remove('active'));
+            if (tabEl) tabEl.classList.add('active');
+            // Also update hero chip
+            document.querySelectorAll('.chip').forEach(c => {
+                const txt = c.textContent.trim().toLowerCase();
+                if (cat === 'all' && txt.includes('all')) c.classList.add('active');
+                if (cat !== 'all' && txt.includes(cat.slice(0, 4))) c.classList.add('active');
+            });
+        }
+
+        // ─── CHAT LOGIC ────────────────────────────────────────
+        const UNCERTAIN_PHRASES = [
+            "i'm not sure", "i don't know", "i don't have", "not certain",
+            "cannot confirm", "outside my knowledge", "no specific information",
+            "can't verify", "my training doesn't cover", "i cannot provide"
+        ];
+
+        function isUncertain(text) {
+            const lower = text.toLowerCase();
+            return UNCERTAIN_PHRASES.some(p => lower.includes(p));
+        }
+
+        function addMsg(role, text) {
+            const wrap = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = 'msg msg-' + role;
+            const icon = role === 'bot' ? '🤖' : '👤';
+            div.innerHTML = `
+    <div class="msg-icon">${icon}</div>
+    <div class="msg-bubble">${renderMarkdown(text)}</div>`;
+            wrap.appendChild(div);
+            wrap.scrollTop = wrap.scrollHeight;
+            return div;
+        }
+
+        function addAskRahul() {
+            const wrap = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = 'ask-rahul';
+            div.innerHTML = `
+    <div class="ask-rahul-title"><i class="ph ph-question" style="color:#22d3ee;"></i> This one needs Rahul himself!</div>
+    <div>This specific question may be outside my training data. Connect with Rahul directly for a real answer.</div>
+    <div class="ask-rahul-btns">
+      <a href="https://linkedin.com/in/rahuls6120" target="_blank" class="ask-btn ask-btn-linkedin">
+        <i class="ph ph-linkedin-logo"></i> Message on LinkedIn
+      </a>
+      <a href="mailto:subbiahrahul007@gmail.com?subject=Question%20from%20CTS%20Guide&body=Hi%20Rahul%2C%0A%0AI%20had%20a%20question%20your%20AI%20couldn%27t%20answer%3A%0A%0A" class="ask-btn ask-btn-email">
+        <i class="ph ph-envelope-simple"></i> Send Email
+      </a>
+    </div>`;
+            wrap.appendChild(div);
+            wrap.scrollTop = wrap.scrollHeight;
+        }
+
+        function addTyping() {
+            const wrap = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = 'msg msg-bot'; div.id = 'typing-indicator';
+            div.innerHTML = `<div class="msg-icon">🤖</div><div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+            wrap.appendChild(div);
+            wrap.scrollTop = wrap.scrollHeight;
+        }
+        function removeTyping() { const el = document.getElementById('typing-indicator'); if (el) el.remove(); }
+
+        function renderMarkdown(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`(.*?)`/g, '<code style="background:rgba(255,255,255,.06);padding:.1rem .3rem;border-radius:.25rem;font-family:monospace;">$1</code>')
+                .replace(/\n- (.*)/g, '<br>• $1')
+                .replace(/\n/g, '<br>');
+        }
+
+        async function sendMessage(text) {
+            const input = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+            const userText = text || input.value.trim();
+            if (!userText || sendingMsg) return;
+
+            // Hide chips
+            const chips = document.getElementById('quick-chips');
+            if (chips) chips.style.display = 'none';
+
+            // Rate limit check
+            const check = canSend();
+            if (!check.ok) {
+                if (check.reason === 'daily') {
+                    document.getElementById('limit-msg').classList.add('show');
+                    document.getElementById('input-wrap').style.display = 'none';
+                } else {
+                    addMsg('bot', '⏳ You\'re sending messages too fast. Please wait a moment — the free tier allows **10 messages per minute**.');
+                }
+                return;
+            }
+
+            sendingMsg = true;
+            input.value = ''; input.style.height = 'auto';
+            sendBtn.disabled = true;
+
+            addMsg('user', userText);
+            chatHistory.push({ role: 'user', parts: [{ text: userText }] });
+            addTyping();
+            recordMessage();
+
+            try {
+                const res = await fetch(
+                    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                            contents: chatHistory,
+                            generationConfig: { temperature: 0.72, maxOutputTokens: 512 }
+                        })
+                    }
+                );
+                const data = await res.json();
+                removeTyping();
+
+                if (data.error) {
+                    const msg = data.error.message || 'API error';
+                    if (msg.includes('API_KEY_INVALID') || msg.includes('API key')) {
+                        addMsg('bot', '❌ API key error. The key may have expired. Please ask Rahul on LinkedIn.');
+                    } else if (msg.includes('quota') || msg.includes('RESOURCE_EXHAUSTED')) {
+                        addMsg('bot', '❌ Gemini free tier quota exceeded for today. Come back tomorrow, or connect with Rahul directly!');
+                        document.getElementById('limit-msg').classList.add('show');
+                        document.getElementById('input-wrap').style.display = 'none';
+                    } else {
+                        addMsg('bot', '❌ ' + msg);
+                    }
+                } else {
+                    const botText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I couldn\'t generate a response.';
+                    chatHistory.push({ role: 'model', parts: [{ text: botText }] });
+                    addMsg('bot', botText);
+                    if (isUncertain(botText)) addAskRahul();
+                }
+            } catch (err) {
+                removeTyping();
+                addMsg('bot', '❌ Network error. Check your connection and try again.');
+            }
+
+            sendingMsg = false;
+            sendBtn.disabled = false;
+        }
+
+        function askChip(q) {
+            const input = document.getElementById('chat-input');
+            input.value = q;
+            sendMessage(q);
+        }
+
+        function handleKey(e) {
+            if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+        }
+
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+        }
+
+        // ─── NAV scroll ──────────────────────────────────────
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').style.background =
+                window.scrollY > 50 ? 'rgba(5,5,10,0.96)' : 'rgba(5,5,10,0.8)';
+            // Scroll progress bar
+            const bar = document.getElementById('scroll-bar');
+            if (bar) {
+                const max = document.body.scrollHeight - window.innerHeight;
+                bar.style.width = (window.scrollY / max * 100) + '%';
+            }
+        });
+
+        // ─── FAQ READ BADGE ───────────────────────────────────
+        const readSet = new Set();
+        document.querySelectorAll('.faq-btn').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                readSet.add(i);
+                const badge = document.getElementById('faq-badge');
+                if (badge) {
+                    badge.querySelector('span').textContent = readSet.size + '/7 topics explored';
+                    badge.classList.add('visible');
+                }
+            });
+        });
+
+        // ─── CURSOR TRAIL ─────────────────────────────────────
+        const canvas = document.createElement('canvas');
+        canvas.id = 'cursor-canvas';
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        let W = canvas.width = window.innerWidth;
+        let H = canvas.height = window.innerHeight;
+        window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+
+        const DOTS = 18;
+        const trail = Array.from({ length: DOTS }, () => ({ x: W / 2, y: H / 2 }));
+        let mx = W / 2, my = H / 2;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+        function drawTrail() {
+            ctx.clearRect(0, 0, W, H);
+            trail[0].x += (mx - trail[0].x) * 0.22;
+            trail[0].y += (my - trail[0].y) * 0.22;
+            for (let i = 1; i < DOTS; i++) {
+                trail[i].x += (trail[i - 1].x - trail[i].x) * 0.2;
+                trail[i].y += (trail[i - 1].y - trail[i].y) * 0.2;
+            }
+            for (let i = 0; i < DOTS; i++) {
+                const t = 1 - i / DOTS;
+                const r = 4 * t + 1.5;
+                ctx.beginPath();
+                ctx.arc(trail[i].x, trail[i].y, r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(20,184,166,${t * 0.55})`;
+                ctx.fill();
+            }
+            // Draw main cursor dot
+            ctx.beginPath();
+            ctx.arc(mx, my, 6, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(20,184,166,0.85)';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(mx, my, 11, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(20,184,166,0.3)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            requestAnimationFrame(drawTrail);
+        }
+        drawTrail();
+    </script>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scroll-bar"></div>
+
+    <!-- FAQ read badge -->
+    <div class="faq-read-badge" id="faq-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2.5">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+        </svg>
+        <span>0/7 topics explored</span>
+    </div>
+
+</body>
+
+</html>
