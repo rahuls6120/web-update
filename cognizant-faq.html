@@ -35,6 +35,141 @@
     <style>
         /* ── Extra FAQ-unique styles ────────────────────────── */
 
+        /* ── Mobile Responsive ──────────────────────────────── */
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr !important;
+            }
+
+            .chat-panel {
+                position: static !important;
+                top: auto !important;
+                order: -1;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            /* Navbar */
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 5.5rem 1.25rem 2.5rem;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 7vw, 2.6rem);
+                line-height: 1.25;
+            }
+
+            .hero-sub {
+                font-size: 0.875rem;
+            }
+
+            .chip-row {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.4rem;
+            }
+
+            /* Category tabs scroll */
+            .cat-tabs {
+                display: flex;
+                overflow-x: auto;
+                gap: 0.4rem;
+                padding-bottom: 0.25rem;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .cat-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .cat-tab {
+                flex-shrink: 0;
+                font-size: 0.72rem;
+                padding: 0.35rem 0.8rem;
+            }
+
+            /* Chat card */
+            .chat-card {
+                border-radius: 1rem;
+            }
+
+            .chat-messages {
+                max-height: 320px;
+            }
+
+            .chat-header {
+                padding: 0.75rem 1rem;
+            }
+
+            .chat-model-badge {
+                display: none;
+            }
+
+            .quick-chips {
+                flex-wrap: wrap;
+                gap: 0.4rem;
+            }
+
+            /* FAQ */
+            .faq-btn {
+                font-size: 0.82rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .faq-content {
+                font-size: 0.82rem;
+            }
+
+            .tip-box {
+                font-size: 0.78rem;
+            }
+
+            /* Container */
+            .container {
+                padding: 0 1rem;
+            }
+
+            /* CTA */
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .cta-btns .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            /* Footer */
+            .footer {
+                flex-direction: column;
+                gap: 0.4rem;
+                text-align: center;
+                font-size: 0.75rem;
+                padding: 1.25rem 1rem;
+            }
+        }
+
         /* Animated mesh orbs in hero */
         .orb {
             position: absolute;
@@ -1264,7 +1399,7 @@
                 <!-- ══ FAQ PANEL ══ -->
                 <div>
                     <div class="faq-panel-header" data-aos="fade-right">
-                        <div class="panel-label">07 questions</div>
+                        <div class="panel-label">12 questions</div>
                         <h2 class="panel-title">Commonly Asked</h2>
                     </div>
 
@@ -1453,6 +1588,170 @@
                             </div>
                         </div>
 
+                        <!-- Q8 -->
+                        <div class="faq-item" data-cat="interview">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">💼</span>
+                                <span class="faq-q-text">How many interview rounds? Arts vs Engineering
+                                    background?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>The number of rounds and the package differ based on your academic background:
+                                    </p>
+                                    <p><strong>Arts &amp; Science background (like Rahul — BS CS/BCA/BBA):</strong></p>
+                                    <ul>
+                                        <li><strong>3 rounds:</strong> Communication round → Aptitude/Assessment →
+                                            Technical + HR</li>
+                                        <li>Package: <strong>~2.8 LPA</strong> (starts as intern, converted to FTE after
+                                            training)</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;"><strong>Engineering background (BE/BTech):</strong>
+                                    </p>
+                                    <ul>
+                                        <li><strong>4 rounds:</strong> One additional technical round</li>
+                                        <li>Package: <strong>Higher than Arts &amp; Science</strong> (typically 3.5–4+
+                                            LPA depending on batch)</li>
+                                    </ul>
+                                    <div class="tip-box">Rahul is from an Arts &amp; Science college (Sri Ramakrishna
+                                        College) and cleared 3 rounds. Know your background type before comparing
+                                        rounds/package with others!</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q9 -->
+                        <div class="faq-item" data-cat="interview">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">💰</span>
+                                <span class="faq-q-text">What's the salary / package at Cognizant?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>Package for Analyst Trainee depends on your educational background:</p>
+                                    <ul>
+                                        <li><strong>Arts &amp; Science (BCA/BBA/BSc/BS):</strong> ~2.8 LPA — starts as
+                                            intern with stipend, then converted to FTE after clearing training</li>
+                                        <li><strong>Engineering (BE/BTech):</strong> Higher package (varies by batch and
+                                            year)</li>
+                                        <li><strong>After training completion:</strong> FTE salary kicks in. For Arts
+                                            &amp; Science backgrounds, it becomes ~3.12 LPA after confirmation</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">Whether you join as <strong>Intern → FTE</strong> or
+                                        directly as <strong>FTE</strong>, both go through the same training and
+                                        assessment process. The only difference is salary vs stipend during training.
+                                    </p>
+                                    <div class="tip-box">No accommodation facility is provided by CTS — you'll need to
+                                        find a PG or flat on your own. Budget for this when you're calculating your
+                                        take-home.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q10 -->
+                        <div class="faq-item" data-cat="onboarding">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">📋</span>
+                                <span class="faq-q-text">What's the BGV (Background Verification) process?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>After your offer letter, a BGV (Background Verification) link is sent by email.
+                                        Here's what to do:</p>
+                                    <ul>
+                                        <li>Upload <strong>marksheets</strong> (10th, 12th, all UG semesters), PAN card,
+                                            Aadhaar, and a photo</li>
+                                        <li>If there's an <strong>Affidavit</strong> section — check if it's mandatory
+                                            (asterisk *). If you have a Provisional Certificate, you usually don't need
+                                            to upload it</li>
+                                        <li>If affidavit is mandatory: download the sample from the portal, fill your
+                                            details, get it signed by a <strong>Notary</strong>, then upload</li>
+                                        <li>If you don't have a document, tick the "Unavailable" checkbox and add a
+                                            comment (e.g., "I have Provisional Certificate")</li>
+                                        <li>If something is uploaded incorrectly, they'll send a <strong>pending BGV
+                                                mail</strong> — they won't withdraw your offer</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">After BGV is accepted, you'll receive the <strong>DOJ
+                                            (Date of Joining) and location mail</strong>, then the onboarding pass about
+                                        3 days before joining.</p>
+                                    <div class="tip-box">Upload everything in good quality. Blurry or cropped documents
+                                        get rejected during verification.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q11 -->
+                        <div class="faq-item" data-cat="onboarding">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">🎒</span>
+                                <span class="faq-q-text">What should I carry on Day 1 (Joining Day)?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>On your Day 1, carry exactly what your onboarding agenda mail says. Typically:
+                                    </p>
+                                    <ul>
+                                        <li>✅ <strong>Onboarding pass</strong> — download from the OneCog portal (you'll
+                                            receive it ~3 days before DOJ, also via email)</li>
+                                        <li>✅ <strong>PAN card</strong> (original)</li>
+                                        <li>✅ <strong>Government photo ID</strong> (Aadhaar or passport)</li>
+                                        <li>✅ <strong>Offer letter copy</strong></li>
+                                        <li>❌ <strong>Do NOT bring your personal laptop</strong> — CTS will provide you
+                                            a company laptop</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">Day 1 will typically involve: ID verification, laptop
+                                        collection, badge/ID card issue (dark blue for trainees), and induction
+                                        sessions. No technical work on Day 1.</p>
+                                    <div class="tip-box">If you don't have a physical PAN/Aadhaar (e.g., address update
+                                        in progress), carry e-PAN and e-Aadhaar and inform HR in advance. They may
+                                        adjust — or ask you to confirm with HR before joining day.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q12 -->
+                        <div class="faq-item" data-cat="training">
+                            <button class="faq-btn" onclick="toggleFaq(this)">
+                                <span class="faq-emoji">🟢</span>
+                                <span class="faq-q-text">How does the training assessment & RAG grading system
+                                    work?</span>
+                                <div class="faq-arrow"><i class="ph ph-caret-down" style="font-size:.75rem;"></i></div>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    <p>During training, there are <strong>3 evaluation stages</strong> — Assessment + 2
+                                        interviews:</p>
+                                    <ol style="padding-left:1.2rem;line-height:2;">
+                                        <li><strong>Assessment:</strong> Domain-focused (programming/theory). Conducted
+                                            by an invigilator — some are strict (no phone), others lenient. Chat with
+                                            cohort friends who went before you about the questions!</li>
+                                        <li><strong>Interview 1 (Mid-training):</strong> Conducted by an SME (Subject
+                                            Matter Expert — a real employee from your domain). Based on training content
+                                            so far. Duration: 15–45 min.</li>
+                                        <li><strong>Final Interview:</strong> Project-based. You'll be assigned a
+                                            mini-project during training. Final SME interview is on the project + full
+                                            training. This is the one that matters most.</li>
+                                    </ol>
+                                    <p style="margin-top:.75rem;"><strong>RAG (Red / Amber / Green) system:</strong></p>
+                                    <ul>
+                                        <li>🟢 <strong>Green in Interview 1</strong> → 2 chances in Final Interview</li>
+                                        <li>🟡 <strong>Yellow in Interview 1</strong> → Only 1 chance in Final. Clear it
+                                            in one shot.</li>
+                                        <li>🔴 <strong>Red in Final</strong> → Not selected as full-time employee (very
+                                            rare, but it happens)</li>
+                                    </ul>
+                                    <p style="margin-top:.75rem;">CTS generally <em>wants</em> you to pass — they invest
+                                        3 months in training you. But effort is non-negotiable.</p>
+                                    <div class="tip-box">Communication + technical terms matter most in interviews.
+                                        Speak with confidence — clarity beats complexity every time.</div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div><!-- /faq-list -->
                 </div>
 
@@ -1582,13 +1881,21 @@ Background: BS CS with Data Analytics, CGPA 7.87, from Sri Ramakrishna College o
   • Data cataloging initiative, data cleaning, KPI reporting
 
 == Key FAQ Facts ==
-INTERVIEW: Resume-based technical + scenario questions; HR has aptitude; know your resume well.
-DOCUMENTS: On-campus = marksheets + Aadhaar/PAN. Off-campus = check email + bring marksheets & ID.
+INTERVIEW: Resume-based technical + scenario questions; HR has aptitude; know your resume well. Tech round was face-to-face for Rahul (on campus). Off campus may have online technical + in-person HR.
+INTERVIEW ROUNDS (Arts & Science like Rahul): 3 rounds — Communication → Aptitude/Assessment → Technical + HR. Engineering: 4 rounds + higher package.
+PACKAGE: Arts & Science = 2.8 LPA starting (intern stipend → FTE after training). After training confirmation = ~3.12 LPA. Engineering = higher package.
+DOCUMENTS: On-campus = marksheets + Aadhaar/PAN (verification before technical round). Off-campus = check email; marksheets + govt ID.
 WEEK 1: Laptop setup, ID config, system access, no classes. Mentor/Trainer/POC introduced from Week 2+.
-TRAINING: Max 3 months. Domain-specific from Week 2 (IBM DataStage, Informatica, SQL, Python, AWS, Linux for Rahul).
-DOMAIN: CTS assigns it — not your choice. Based on business need. Rahul got IBM DataStage (healthcare ETL).
-LOCATION: Not guaranteed to match preference. Rahul is in Chennai. Depends on PM and HR Manager.
-AFTER TRAINING: Allocation mail with project name, client, manager, location, reporting date.
+TRAINING: Max 3 months. Domain-specific from Week 2. Assessment + 2 SME interviews (RAG system: Green=2 chances in final, Yellow=1 chance, Red=not selected as FTE). Communication is crucial.
+TRAINING RAG: Green in Interview 1 → 2 attempts at final. Yellow → 1 attempt only. Red in final = not selected. CTS tries to pass everyone but you must put in effort.
+DOMAIN: CTS assigns based on business need. Not your choice. Common domains: IBM DataStage, Informatica, Java, Salesforce, SAP, ADM, Multicloud/CIS (support), PowerBI, AWS. Some people in same class/batch get different domains.
+LOCATION: Not guaranteed. Even after training, 50-50 chance of preferred location. No relocation guarantee. Cohort in Chennai had people from West Bengal, Rajasthan, Amritsar.
+ACCOMMODATION: CTS provides NO accommodation. You must find PG/flat yourself.
+AFTER TRAINING: Project allocation mail (project, client, manager, location, reporting date). No internal transfer for 2 years.
+BGV: Upload marksheets, PAN, Aadhaar, photo. Affidavit is usually optional (check * mark). If needed, get notary signature. Tick "Unavailable" for missing docs with comments. Wrong uploads = re-upload request, not offer withdrawal. After BGV: pre-joining formalities → DOJ + location mail → onboarding pass (3 days before DOJ via mail + OneCog portal).
+DAY 1: Carry onboarding pass (download from OneCog portal), PAN card original, govt ID, offer letter copy. NO personal laptop. ID card (dark blue for trainees) issued on Day 1. Day 1 is induction only, no technical work.
+INTERNSHIP VS FTE: Campus = usually intern offer first → FTE after training. Off-campus direct hires may get FTE offer directly. Both do same training. Interns get stipend; FTEs get salary during training.
+QUERIES: Raise via https://campus2cognizant.cognizant.com/Pages/Prelogin or Superset help center.
 
 == Skills ==
 ETL: IBM DataStage, Informatica, Autosys, ETL Pipeline Design, Data Warehousing, Linux/Unix
@@ -1858,7 +2165,7 @@ If you genuinely don't know or are very uncertain, say "I'm not sure about this 
                 readSet.add(i);
                 const badge = document.getElementById('faq-badge');
                 if (badge) {
-                    badge.querySelector('span').textContent = readSet.size + '/7 topics explored';
+                    badge.querySelector('span').textContent = readSet.size + '/12 topics explored';
                     badge.classList.add('visible');
                 }
             });
@@ -1918,7 +2225,7 @@ If you genuinely don't know or are very uncertain, say "I'm not sure about this 
             <path d="M9 11l3 3L22 4" />
             <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
         </svg>
-        <span>0/7 topics explored</span>
+        <span>0/12 topics explored</span>
     </div>
 
 </body>
